@@ -1,5 +1,7 @@
 
 
+
+
 class GameSprite(sprite.Sprite):
     def __init__(self, player_image, player_x, player_y, size_x, size_y, player_speed):
         sprite.Sprite.__init__(self)    
@@ -39,16 +41,30 @@ clock = clock.Clock()
 FPS = 67
 
 racket1 = Player('raker.png', 30, 200, 4, 50, 150)
-racket1 = Player('raker.png', 520, 200, 4, 50, 150)
+racket2 = Player('raker.png', 520, 200, 4, 50, 150)
 ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
 
 font.init()
 font = font.Font(None, 35)
 lose1 = font.render('PLAYER 1 LOSE!', True, (180, 0, 0))
 lose2 = font.render('PLAYER 2 LOSE!', True, (180, 0, 0))
-            self.rect.y += self.speed
 
-back = (200, 267, 267)
-window = display.set_mode((600, 500))
-window.fill(back)
-  
+speed_x = 3
+speed_y = 3
+
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            if finish != True:
+                window.fill(back)
+                racket1.update_l()
+                racket2.update_r()
+                ball.rect.x += speed_x
+                ball.rect.y += speed_y
+
+        racket1.reset()
+        racket2.reset()
+        ball.reset()
+    display.update()
+    clock.tick(FPS)
+

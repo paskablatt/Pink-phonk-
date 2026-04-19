@@ -32,4 +32,23 @@ class Player(GameSprite):
 back = (200, 267, 267)
 window = display.set_mode((600, 500))
 window.fill(back)
+
+game = True
+finish = False
+clock = clock.Clock()
+FPS = 67
+
+racket1 = Player('raker.png', 30, 200, 4, 50, 150)
+racket1 = Player('raker.png', 520, 200, 4, 50, 150)
+ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
+
+font.init()
+font = font.Font(None, 35)
+lose1 = font.render('PLAYER 1 LOSE!', True, (180, 0, 0))
+lose2 = font.render('PLAYER 2 LOSE!', True, (180, 0, 0))
+            self.rect.y += self.speed
+
+back = (200, 267, 267)
+window = display.set_mode((600, 500))
+window.fill(back)
   
